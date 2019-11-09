@@ -1,4 +1,4 @@
-import path from 'ramda/es/path'
+import path from 'ramda/src/path'
 import { transformToArray } from 'helpers/redux'
 import { createSelector } from 'reselect'
 

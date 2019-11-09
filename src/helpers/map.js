@@ -1,7 +1,7 @@
-import is from 'ramda/es/is'
-import gte from 'ramda/es/gte'
-import lte from 'ramda/es/lte'
-import allPass from 'ramda/es/allPass'
+import is from 'ramda/src/is'
+import gte from 'ramda/src/gte'
+import lte from 'ramda/src/lte'
+import allPass from 'ramda/src/allPass'
 
 const isNumber = is(Number)
 

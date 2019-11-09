@@ -3,7 +3,7 @@ import React from 'react'
 import { GoogleMap, useLoadScript } from '@react-google-maps/api'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import makeStyles from '@material-ui/core/styles/makeStyles'
-import path from 'ramda/es/path'
+import path from 'ramda/src/path'
 
 const useStyles = makeStyles({
   mapContainer: {
