@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Provider } from 'react-redux'
+import thunkMiddleware from 'redux-thunk'
+import { applyMiddleware, createStore } from 'redux'
+import rootReducer from 'ducks/index'
+import { createLogger } from 'redux-logger'
+import Router from 'Router'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const middlewares = [thunkMiddleware]
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(createLogger({ collapsed: true }))
 }
 
-export default App;
+const store = createStore(
+  rootReducer,
+  applyMiddleware(...middlewares)
+)
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <Router />
+    </Provider>
+  )
+}
+
+export default App
