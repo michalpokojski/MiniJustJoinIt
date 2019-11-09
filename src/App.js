@@ -5,6 +5,7 @@ import { applyMiddleware, createStore } from 'redux'
 import rootReducer from 'ducks/index'
 import { createLogger } from 'redux-logger'
 import Router from 'Router'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 const middlewares = [thunkMiddleware]
 
@@ -20,6 +21,7 @@ const store = createStore(
 const App = () => {
   return (
     <Provider store={store}>
+      <CssBaseline />
       <Router />
     </Provider>
   )

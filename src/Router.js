@@ -6,12 +6,14 @@ import OffersMainScreen from 'views/OffersMainScreen'
 
 const IndexRedirect = () => <Redirect to={Routes.home} />
 
+const Hey = () => <Button>siemanko</Button>
+
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path={Routes.main} component={OffersMainScreen} />
-        <Route exact path={Routes.offerDetails} component={() => <Button>siemanko</Button>} />
+        <Route exact path={Routes.home} component={OffersMainScreen} />
+        <Route path={Routes.offerDetails} component={Hey} />
         <Route component={IndexRedirect} />
       </Switch>
     </BrowserRouter>

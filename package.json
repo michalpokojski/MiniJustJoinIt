@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.6.0",
+    "@react-google-maps/api": "^1.7.9",
     "axios": "^0.19.0",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
@@ -24,12 +25,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "standard",
-      "standard-jsx"
-    ]
   },
   "browserslist": {
     "production": [
