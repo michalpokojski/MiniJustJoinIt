@@ -24,16 +24,11 @@ const MapComponent = ({ pins, center, zoom }) => {
     return <div>Map cannot be loaded right now, sorry.</div>
   }
 
-  const onLoad = mapsStuff => {
-    console.log(mapsStuff)
-  }
-
   return (
     <div className={classes.mapContainer}>
       {isLoaded ? (
         <GoogleMap
           options={options}
-          onLoad={onLoad}
           mapContainerStyle={{ height: '100%', width: '100%' }}
           zoom={zoom}
           center={center}

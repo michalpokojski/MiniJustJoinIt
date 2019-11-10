@@ -5,7 +5,6 @@ import StarBorder from '@material-ui/icons/StarBorder'
 
 const SkillStars = ({ stars }) => {
   const starsArray = range(1, 6)
-  console.log(starsArray)
   return (
     <span>
       {starsArray.map((starNumber) => (

@@ -12,24 +12,21 @@ import IconButton from '@material-ui/core/IconButton'
 import prop from 'ramda/src/prop'
 import { tranctuate } from 'helpers/styles'
 
-const useStyles = makeStyles(theme => {
-  console.log(theme)
-  return ({
-    offer: {
-      transition: 'all .3s',
-      cursor: 'pointer',
-      '&:hover': {
-        backgroundColor: ({ isSelected }) => isSelected ? theme.palette.background.paper : theme.palette.action.hover,
-        boxShadow: theme.shadows[6]
-      },
-      display: 'flex',
-      flexFlow: 'column nowrap',
-      alignItems: 'center',
-      gridColumn: ({ isSelected }) => isSelected ? '1 / -1' : 'auto'
+const useStyles = makeStyles(theme => ({
+  offer: {
+    transition: 'all .3s',
+    cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: ({ isSelected }) => isSelected ? theme.palette.background.paper : theme.palette.action.hover,
+      boxShadow: theme.shadows[6]
     },
-    cardTitle: tranctuate
-  })
-})
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    alignItems: 'center',
+    gridColumn: ({ isSelected }) => isSelected ? '1 / -1' : 'auto'
+  },
+  cardTitle: tranctuate
+}))
 
 const Offer = ({ selectedOffer, handleSelectOffer, offer, redirectToOffer }) => {
   const isSelected = useMemo(() => prop('id', selectedOffer) === offer.id, [selectedOffer, offer])
