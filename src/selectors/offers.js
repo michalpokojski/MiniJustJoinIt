@@ -7,6 +7,7 @@ import always from 'ramda/src/always'
 import ifElse from 'ramda/src/ifElse'
 import length from 'ramda/src/length'
 import identity from 'ramda/src/identity'
+import propOr from 'ramda/src/propOr'
 
 const getOffers = path(['offers', 'entries'])
 
@@ -23,4 +24,10 @@ export const getAllOffersAsArray = createSelector(
       )
     )(offers)
   }
+)
+
+export const getJobOfferById = createSelector(
+  getOffers,
+  (_, jobOfferId) => jobOfferId,
+  (offers, jobOfferId) => propOr({}, jobOfferId, offers)
 )

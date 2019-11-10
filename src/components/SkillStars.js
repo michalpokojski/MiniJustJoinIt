@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import range from 'ramda/src/range'
 import Star from '@material-ui/icons/Star'
@@ -12,6 +13,10 @@ const SkillStars = ({ stars }) => {
       ))}
     </span>
   )
+}
+
+SkillStars.propTypes = {
+  stars: PropTypes.number.isRequired
 }
 
 export default SkillStars

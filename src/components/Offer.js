@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexFlow: 'column nowrap',
     alignItems: 'center',
-    gridColumn: ({ isSelected }) => isSelected ? '1 / -1' : 'auto'
+    gridColumn: ({ isSelected }) => isSelected ? 'span 2' : 'auto',
+    gridRow: ({ isSelected }) => isSelected ? 'span 2' : 'auto'
   },
   cardTitle: tranctuate,
   salary: {
@@ -35,7 +36,7 @@ const useStyles = makeStyles(theme => ({
   city: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    flex: 1
+    flex: '1 1'
   }
 }))
 
@@ -63,19 +64,19 @@ const Offer = ({ selectedOffer, handleSelectOffer, offer, redirectToOffer }) => 
         {isSelected && (
           <Typography className={classes.city}>{offer.city} - {offer.street}</Typography>
         )}
-        <Typography className={classes.salary}>
-          {offer.salary_from} - {offer.salary_to} {offer.salary_currency}
-        </Typography>
+        {offer.salary_from && (
+          <Typography className={classes.salary}>
+            {offer.salary_from} - {offer.salary_to} {offer.salary_currency}
+          </Typography>
+        )}
         {isSelected && (
           <IconButton onClick={redirectToOffer(offer.id)}>
             <ArrowForward />
           </IconButton>
         )}
       </ListItem>
-      {isSelected && (
-        <ListItem>
-          <Skills skills={offer.skills} offerId={offer.id} />
-        </ListItem>
+      {isSelected && offer.skills && (
+        <Skills skills={offer.skills} offerId={offer.id} />
       )}
     </Paper>
   )
