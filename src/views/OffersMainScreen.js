@@ -45,7 +45,7 @@ const OffersMainScreen = ({ history }) => {
     return () => history.push(Routes.offerDetails.replace(':offerId', offerId))
   }, [history])
 
-  const mapPins = useMapPins(offers, redirectToOffer)
+  const mapPins = useMapPins(offers, redirectToOffer, selectedOffer)
   const handleSelectOffer = useCallback((offer) => () => selectOffer(offer), [selectedOffer])
 
   return (

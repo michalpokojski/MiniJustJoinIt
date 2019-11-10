@@ -11,6 +11,7 @@ import Skills from 'components/Skills'
 import IconButton from '@material-ui/core/IconButton'
 import prop from 'ramda/src/prop'
 import { tranctuate } from 'helpers/styles'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
   offer: {
@@ -25,7 +26,17 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     gridColumn: ({ isSelected }) => isSelected ? '1 / -1' : 'auto'
   },
-  cardTitle: tranctuate
+  cardTitle: tranctuate,
+  salary: {
+    color: 'green',
+    whiteSpace: 'nowrap',
+    marginLeft: theme.spacing(1)
+  },
+  city: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    flex: 1
+  }
 }))
 
 const Offer = ({ selectedOffer, handleSelectOffer, offer, redirectToOffer }) => {
@@ -49,6 +60,12 @@ const Offer = ({ selectedOffer, handleSelectOffer, offer, redirectToOffer }) => 
           primary={offer.title}
           secondary={offer.company_name}
         />
+        {isSelected && (
+          <Typography className={classes.city}>{offer.city} - {offer.street}</Typography>
+        )}
+        <Typography className={classes.salary}>
+          {offer.salary_from} - {offer.salary_to} {offer.salary_currency}
+        </Typography>
         {isSelected && (
           <IconButton onClick={redirectToOffer(offer.id)}>
             <ArrowForward />
